@@ -1,0 +1,7 @@
+server:
+  port: 3000
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://3.144.106.104:27017/bd_chocolateros
