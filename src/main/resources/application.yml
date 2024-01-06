@@ -4,4 +4,4 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://3.144.106.104:27017/bd_chocolateros
+      uri: mongodb://mongo:f6chaC1e1h341b1HaE3b62Aba5BghC5g@roundhouse.proxy.rlwy.net:16802/test?authSource=admin
