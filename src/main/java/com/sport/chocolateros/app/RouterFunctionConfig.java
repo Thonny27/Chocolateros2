@@ -22,6 +22,7 @@ public class RouterFunctionConfig {
         return RouterFunctions.route(RequestPredicates.POST("/api/chocolateros/user"), userHandler::save)
                 .andRoute(RequestPredicates.PUT("/api/chocolateros/user/{id}"), userHandler::update)
                 .andRoute(RequestPredicates.GET("/api/chocolateros/user"), userHandler::findAll)
+                .andRoute(RequestPredicates.POST("/api/chocolateros/user/login"), userHandler::login)
                 .andRoute(RequestPredicates.GET("/api/chocolateros/user/{id}"), userHandler::findById)
                 .andRoute(RequestPredicates.POST("/api/chocolateros/customerSoccerField"), customerSoccerFieldHandler::save)
                 .andRoute(RequestPredicates.PUT("/api/chocolateros/customerSoccerField/{id}"), customerSoccerFieldHandler::update)

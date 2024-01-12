@@ -1,6 +1,7 @@
 package com.sport.chocolateros.app.handler;
 
 import com.sport.chocolateros.app.document.User;
+import com.sport.chocolateros.app.dto.UserLogin;
 import com.sport.chocolateros.app.service.UserService;
 import java.net.URI;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,16 @@ public class UserHandler {
                         .contentType(MediaType.APPLICATION_JSON)
                         .syncBody(user))
                 .switchIfEmpty(ServerResponse.notFound().build());
+    }
+
+    public Mono<ServerResponse> login(ServerRequest request) {
+        Mono<UserLogin> userLoginMono = request.bodyToMono(UserLogin.class);
+        return userLoginMono.flatMap(p -> {
+            return userService.login(p).flatMap(prod -> ServerResponse.ok()
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .syncBody(prod))
+                    .switchIfEmpty(ServerResponse.notFound().build());
+        });
     }
 
 }

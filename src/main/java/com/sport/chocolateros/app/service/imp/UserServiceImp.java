@@ -1,6 +1,8 @@
 package com.sport.chocolateros.app.service.imp;
 
 import com.sport.chocolateros.app.document.User;
+import com.sport.chocolateros.app.dto.Login;
+import com.sport.chocolateros.app.dto.UserLogin;
 import com.sport.chocolateros.app.repository.UserRepository;
 import com.sport.chocolateros.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +31,10 @@ public class UserServiceImp implements UserService {
     public Mono<User> findById(String id) {
         return userRepository.findById(id);
     }
+
+    @Override
+    public Mono<User> login(UserLogin userLogin) {
+        return userRepository.findAllByEmailAndPassword(userLogin.getEmail(),userLogin.getPassword());
+    }
+
 }

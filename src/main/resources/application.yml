@@ -5,3 +5,4 @@ spring:
   data:
     mongodb:
       uri: mongodb://mongo:f6chaC1e1h341b1HaE3b62Aba5BghC5g@roundhouse.proxy.rlwy.net:16802/test?authSource=admin
+

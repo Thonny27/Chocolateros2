@@ -29,11 +29,6 @@ public class ReserveHandler {
         Mono<Reserve> reserveMono = request.bodyToMono(Reserve.class);
         String id = request.pathVariable("id");
 
-//        return reserveMono.flatMap(reserve->{
-//            return reserveService.save(reserve).flatMap(r->ServerResponse.created(URI.create("/api/chocolateros/reserve/".concat(r.getId())))
-//                    .contentType(MediaType.APPLICATION_JSON)
-//                    .syncBody(r));
-//        });
         return reserveMono.flatMap(reserve -> customerSoccerFieldService.findById(reserve.getCustomerSoccerFieldId())
                 .flatMap(customerSoccerField -> {
                     SoccerFieldReserved soccerFieldReserved = new SoccerFieldReserved();
